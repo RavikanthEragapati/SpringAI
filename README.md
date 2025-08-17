@@ -16,7 +16,7 @@
 * Add In-Memory Chat Memory Repository to maintain Chat History.
 
 ## Where can I learn more about SpringAI?
-There is no better place to learn from then the direct source i.e. https://docs.spring.io/spring-ai/reference/concepts.html
+There is no better place to learn from then the direct source i.e. https://docs.spring.io/spring-ai/reference/index.html
 
 ## Setup Ollama on MAC (For Windows and Linux instructions see [Winsows](https://github.com/ollama/ollama/blob/main/docs/windows.md) / [Linux](https://github.com/ollama/ollama/blob/main/docs/linux.md))
 
@@ -58,7 +58,7 @@ launchctl setenv OLLAMA_HOST "0.0.0.0:11434"
    * Spring-ai-starter-model-ollama
    * Spring-ai-tika-document-reader
    * Spring-ai-starter-model-chat-memory (If time permits)
-- Download the project and follow through
+- Download/Generate project, unzip and follow through with me
 
 ## Additional links:
 https://medium.com/@gareth.hallberg_55290/part-7-implementing-rag-part-1-embeddings-and-vector-stores-with-spring-ai-6ae97926d13e
