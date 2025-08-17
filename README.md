@@ -31,6 +31,9 @@ There is no better place to learn from then the direct source i.e. https://docs.
 ```cmd
 launchctl setenv OLLAMA_HOST "0.0.0.0:11434"
 ```
+- Open Ollama settings and put Ollama on AirPlane mode - This will make sure our data stays local by disabling Turbo mode and web search.
+<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/c0dde131-5536-4c03-aace-3c0dc47234b3" />
+
 
 ## Interacting with Ollama model
 ### Using Terminal
