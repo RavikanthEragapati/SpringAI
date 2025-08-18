@@ -1,0 +1,62 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.5.4'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.eragapati'
+version = '0.0.1-SNAPSHOT'
+description = 'Demo project for Spring Boot'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springAiVersion', "1.0.1")
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Provides classes such as ChatModel and ChatClient to interact with LLM using the APIs
+    implementation 'org.springframework.ai:spring-ai-starter-model-ollama'
+
+    // In-Memory SimpleVectorStore
+    implementation 'org.springframework.ai:spring-ai-vector-store'
+
+    // Process Documents and PDFs into tokens using the provided Embedding Model
+    implementation 'org.springframework.ai:spring-ai-pdf-document-reader'
+    implementation 'org.springframework.ai:spring-ai-tika-document-reader'
+
+    // In-Memory Chat Repository
+    implementation 'org.springframework.ai:spring-ai-starter-model-chat-memory'
+
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.ai:spring-ai-bom:${springAiVersion}"
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
