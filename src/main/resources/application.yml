@@ -1,4 +1,30 @@
 spring:
+  ai:
+    ollama:
+      base-url: "http://localhost:11434"
+      embedding:
+        model: llama3.2
+      chat:
+        model: llama3.2
+        options:
+          max-tokens: 4000
+
+          # Probability distribution and randomness of next token.
+          # temperature = 1: Dividing logits by one has no effect on the softmax outputs.
+          # temperature < 1: Lower temperature makes the model more confident and deterministic by sharpening the probability distribution, leading to more predictable outputs.
+          # temperature > 1: Higher temperature creates a softer probability distribution, allowing for more randomness in the generated text ? what some refer to as model ?creativity?.
+          temperature: 0.8
+
+          # In addition, the sampling process can be further refined using top-k and top-p parameters:
+          #
+          #top-k sampling: Limits the candidate tokens to the top k tokens with the highest probabilities, filtering out less likely options.
+          #top-p sampling: Considers the smallest set of tokens whose cumulative probability exceeds a threshold p, ensuring that only the most likely tokens contribute while still allowing for diversity.
+          #By tuning temperature, top-k, and top-p, you can balance between deterministic and diverse outputs, tailoring the model's behavior to your specific needs.
+
+          # Reduces the probability of generating nonsense. A higher value (e.g. 100) will give more diverse answers, while a lower value (e.g. 10) will be more conservative. (Default: 40)
+          top-k: 40
+          # Works together with top-k. A higher value (e.g., 0.95) will lead to more diverse text, while a lower value (e.g., 0.5) will generate more focused and conservative text. (Default: 0.9)
+          top-p: 0.9
   threads:
     virtual:
       enabled: true
