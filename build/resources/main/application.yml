@@ -1,0 +1,17 @@
+spring:
+  threads:
+    virtual:
+      enabled: true
+  application:
+    name: springai-llama-rag
+
+server:
+  port: 8080
+  http2:
+    enabled: false #need to learn pro vs con and then enable
+
+logging:
+  level:
+    root: INFO
+
+debug: false

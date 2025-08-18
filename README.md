@@ -67,6 +67,7 @@ launchctl setenv OLLAMA_HOST "0.0.0.0:11434"
    * Spring-ai-tika-document-reader
    * Spring-ai-starter-model-chat-memory (If time permits)
 - Download/Generate project, unzip and follow through with me
+- Add `implementation 'org.springframework.ai:spring-ai-vector-store'` dependency manually to enable use of SimpleVectorStore
 
 ## Additional links:
 https://medium.com/@gareth.hallberg_55290/part-7-implementing-rag-part-1-embeddings-and-vector-stores-with-spring-ai-6ae97926d13e
