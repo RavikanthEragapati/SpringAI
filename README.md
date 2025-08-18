@@ -13,11 +13,11 @@
 * Impliment RAG using in-memory VectorStore(`SIMPLE`).
 * Feed articles and document into VectorStore using llama3.2 Embedding model.
 * __Expose 5 endpoints:__
-    * `GET /chat/{ID}/ask?token={QUESTION}` - To ask a question without using RAG.
-    * `GET /chat/{ID}/askUsingRAG?token={QUESTION}` - To ask a question using RAG.
+    * `GET /chat/{ID}/ask?token=<QUESTION>` - To ask a question without using RAG.
+    * `GET /chat/{ID}/askUsingRAG?token=<QUESTION>` - To ask a question using RAG.
     * `GET /chat/{ID}/history` - Look at last 5 chat history.
-    * `POST /rag/load` - To replenish RAG with fresh new up-to-date information.
-    * `POST /rag/offload` - To offload all the data in VectorStore into a JSON file and look at embeddings.
+    * `POST /rag/load?fromAbsolutePath=<PATH>` - To replenish RAG with fresh new up-to-date information.
+    * `POST /rag/offloadToFile` - To offload all the data in VectorStore into a JSON file and look at embeddings.
 * Add In-Memory Chat Memory Repository to maintain Chat History.
 
 ## Where can I learn more about SpringAI?

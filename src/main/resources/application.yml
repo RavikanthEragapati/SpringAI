@@ -31,6 +31,14 @@ spring:
   application:
     name: springai-llama-rag
 
+vectorstore:
+  simple:
+    feeder:
+      path: src/main/resources/rag-feeder
+    offload:
+      path: src/main/resources/vectorstore_backup.json
+
+
 server:
   port: 8080
   http2:
