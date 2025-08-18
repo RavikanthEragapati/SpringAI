@@ -1,6 +1,7 @@
 package com.eragapati.springai.llama.configuration;
 
-import jakarta.annotation.PreDestroy;
+import com.eragapati.springai.llama.service.RAGFeederService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.ai.vectorstore.SimpleVectorStore;
@@ -10,47 +11,32 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.io.File;
-import java.util.Objects;
 
 @Slf4j
 @Configuration
+@RequiredArgsConstructor
 public class InMemoryVectorStoreConfig {
 
-    @Value("${vectorstore.simple.offload.path:vectorstore_backup.json}")
-    private String vectorStorePath;
+    @Value("${vectorstore.simple.offload.path:/src/main/resources/vectorstore_backup.json}")
+    private String restoreFile;
 
     private SimpleVectorStore simpleVectorStore;
 
     @Bean
     public VectorStore simpleVectorStore(EmbeddingModel embeddingModel) {
-        var vectorStoreFile = new File(vectorStorePath);
         this.simpleVectorStore = SimpleVectorStore.builder(embeddingModel).build();
-        if (vectorStoreFile.exists() && vectorStoreFile.isFile()) {
-            log.info("Loading SimpleVectorStore from file: {}", vectorStoreFile.getAbsolutePath());
+
+        var file = new File(restoreFile);
+        if (file.exists() && file.isFile()) {
+            log.info("Restore SimpleVectorStore from file: {}", file.getAbsolutePath());
             try {
-                simpleVectorStore.load(vectorStoreFile);
+                simpleVectorStore.load(file);
             } catch (Exception e) {
                 log.error("Error loading vector store from file: ${e.message}. Starting fresh.", e);
             }
         } else {
-            log.info("No Previous backups to load... Backup location: {}", vectorStoreFile.getAbsolutePath());
+            log.info("No Previous backups to load... Backup location: {}", file.getAbsolutePath());
         }
         return simpleVectorStore;
-    }
-
-    @PreDestroy
-    public void offloadSimpleVectorStoreDataToFile() {
-        if (Objects.nonNull(simpleVectorStore)) {
-            var file = new File(vectorStorePath);
-            System.out.println("Offloading SimpleVectorStore data into file: ${file.absolutePath}");
-            try {
-                simpleVectorStore.save(file);
-                System.out.println("SimpleVectorStore saved successfully.");
-            } catch (Exception e) {
-                System.err.println("Error offloading SimpleVectorStore data to file" + e.getMessage());
-            }
-        } else {
-            System.out.println("VectorStore bean was not initialized, skipping save.");
-        }
     }
 }
