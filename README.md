@@ -70,11 +70,11 @@ launchctl setenv OLLAMA_HOST "0.0.0.0:11434"
 - Add `implementation 'org.springframework.ai:spring-ai-vector-store'` dependency manually to enable use of SimpleVectorStore
 
 ## How do i read the code and branchNames ?
-     - `main branch` - has latest and greatest chagnes 
-     - `0-init` - Bootstrap project structure with a working helloWorld endpoint from Spring Initializr portal
-     - `1-connect-ollama` - Integrated to Ollama and query Ollama
-     - `2-setup-vectorstore` - Introduced RAG and VectorStore
-     - `3-RAG-Endpoint` - Added endpoints to manage RAG (load new documents or offload existing vectorStore data into a JSON file)
+- `main branch` - has latest and greatest chagnes
+- `0-init` - Bootstrap project structure with a working helloWorld endpoint from Spring Initializr portal
+- `1-connect-ollama` - Integrated to Ollama and query Ollama
+- `2-setup-vectorstore` - Introduced RAG and VectorStore
+- `3-RAG-Endpoint` - Added endpoints to manage RAG (load new documents or offload existing vectorStore data into a JSON file)
 
 ## Additional links:
 https://medium.com/@gareth.hallberg_55290/part-7-implementing-rag-part-1-embeddings-and-vector-stores-with-spring-ai-6ae97926d13e - Uses In-Memory SimpleVectorStore 
