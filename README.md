@@ -68,6 +68,11 @@ launchctl setenv OLLAMA_HOST "0.0.0.0:11434"
    * Spring-ai-starter-model-chat-memory (If time permits)
 - Download/Generate project, unzip and follow through with me
 - Add `implementation 'org.springframework.ai:spring-ai-vector-store'` dependency manually to enable use of SimpleVectorStore
+- How to read code ? read it in the assending order i.e.
+     - 0-init 
+     - 1-connect-ollama
+     - 2-setup-vectorstore
+     - 3-RAG-Endpoint
 
 ## Additional links:
 https://medium.com/@gareth.hallberg_55290/part-7-implementing-rag-part-1-embeddings-and-vector-stores-with-spring-ai-6ae97926d13e
