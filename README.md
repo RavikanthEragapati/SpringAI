@@ -1,5 +1,10 @@
 # Spring AI project :rocket: with Ollama and Retrieval-augmented generation (RAG)
 
+> [!NOTE]
+> Ollama is an open-source platform that enables users to run LLaMA and other LLMs directly on their local machines.
+> 
+> Llama(Large Language Model Meta AI ) is the LLM, It is a family of open-source large language models developed by Meta.
+
 ## Objective: 
 * Setup and Ollama server and ollama CLI (locally/offline).
 * Download and run llama3.2 model (3B parameter, 2.0GB size).
